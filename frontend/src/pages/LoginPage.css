@@ -1,0 +1,107 @@
+.login-page {
+  min-height: 100dvh;
+  display: grid;
+}
+
+/* Form panel */
+.login-panel--form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  background: var(--c-bg);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.login-card__title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-text);
+  text-align: center;
+}
+
+/* Field */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.field__label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-text-dim);
+}
+.field__input {
+  height: 52px;
+  padding: 0 16px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  color: var(--c-text);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field__input::placeholder { color: var(--c-text-xs); }
+.field__input:focus {
+  border-color: var(--c-amber);
+  box-shadow: 0 0 0 3px rgba(245,166,35,0.15);
+}
+
+.btn-full { width: 100%; margin-top: 8px; }
+
+/*  Build confirmation  */
+.build-confirm { display: flex; flex-direction: column; gap: 20px; }
+
+.build-confirm__grid {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.build-confirm__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--c-border);
+}
+.build-confirm__row:last-child { border-bottom: none; }
+
+.build-confirm__label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-text-dim);
+}
+.build-confirm__value {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-text);
+}
+
+.build-confirm__actions { display: flex; gap: 12px; }
+.build-confirm__actions .btn { flex: 1; }
+
+/*  Responsive  */
+@media (max-width: 720px) {
+  .login-panel--form { padding: 32px 24px; align-items: flex-start; padding-top: 64px; }
+}

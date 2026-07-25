@@ -1,0 +1,44 @@
+.pause-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(13, 14, 16, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+@keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
+
+.pause-overlay__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  padding: 56px 64px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border2);
+  border-radius: var(--r-lg);
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+}
+
+.pause-overlay__title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+.pause-overlay__sub {
+  font-size: 14px;
+  color: var(--c-text-dim);
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+.btn-lg { height: 56px; font-size: 18px; padding: 0 40px; margin-top: 8px; }
