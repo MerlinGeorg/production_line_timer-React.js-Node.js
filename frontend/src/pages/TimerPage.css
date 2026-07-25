@@ -1,0 +1,178 @@
+.timer-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.timer-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 48px 24px;
+}
+
+/* Status strip  */
+.status-strip {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 99px;
+  border: 1px solid;
+}
+.status-strip--active {
+  color: var(--c-green);
+  background: var(--c-green-dim);
+  border-color: rgba(45,206,110,0.3);
+}
+.status-strip--overtime {
+  color: var(--c-red);
+  background: var(--c-red-dim);
+  border-color: rgba(245,69,69,0.3);
+  animation: strip-pulse 1.5s ease-in-out infinite;
+}
+@keyframes strip-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.65; } }
+
+/*  Clock  */
+.clock-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 56px 80px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  box-shadow: 0 0 0 1px var(--c-border) inset, 0 24px 80px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top highlight */
+.clock-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+}
+
+.clock-wrap--overtime {
+  border-color: rgba(245,69,69,0.4);
+  box-shadow: 0 0 0 1px rgba(245,69,69,0.2) inset,
+              0 0 60px rgba(245,69,69,0.08),
+              0 24px 80px rgba(0,0,0,0.5);
+}
+
+.clock-label {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-text-xs);
+}
+
+.clock-digits {
+  font-family: var(--font-mono);
+  font-size: clamp(64px, 12vw, 120px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--c-text);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.4s;
+}
+.clock-wrap--overtime .clock-digits { color: var(--c-red); }
+
+.overtime-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--c-red);
+  font-family: var(--font-mono);
+}
+
+/* Controls */
+.controls-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.control-btn {
+  min-width: 140px;
+  height: 56px;
+  font-size: 18px;
+}
+
+/* Defect stepper  */
+.defect-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.defect-control__label {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-text-xs);
+}
+.defect-control__row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.stepper-btn {
+  width: 44px;
+  height: 56px;
+  background: var(--c-surface2);
+  border: none;
+  color: var(--c-text-dim);
+  font-size: 22px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  flex-shrink: 0;
+}
+.stepper-btn:not(:disabled):hover { background: var(--c-border); color: var(--c-text); }
+.stepper-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.defect-control__input {
+  width: 80px;
+  height: 56px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--c-border);
+  border-right: 1px solid var(--c-border);
+  color: var(--c-text);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  outline: none;
+  /* Hide native number spinners */
+  appearance: textfield;
+}
+.defect-control__input::-webkit-outer-spin-button,
+.defect-control__input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+@media (max-width: 560px) {
+  .clock-wrap { padding: 40px 32px; }
+  .controls-row { gap: 16px; }
+  .control-btn { min-width: 120px; }
+}

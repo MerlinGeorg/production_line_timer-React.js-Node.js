@@ -1,0 +1,22 @@
+{
+  "name": "timer-backend",
+  "version": "1.0.0",
+  "description": "Timer – Backend API",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node db/seed.js"
+  },
+  "engines": {
+    "node": ">=21"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.0.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
